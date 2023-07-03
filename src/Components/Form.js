@@ -1,6 +1,7 @@
 import {useState} from 'react';
 function Form(){
     const [name,setName]=useState('');
+    const [prod,setProd]=useState('');
     const [nums,setNums]=useState([]);
     
     const check=(e)=>{
@@ -14,7 +15,7 @@ function Form(){
     const onSub=(e)=>{
         e.preventDefault();
             
-        alert(`Hello ${name} you checked this Numbers ${nums.join(',')}`);
+        alert(`Hello ${name} you want ${nums.join(',')} pieces from ${prod} `);
     }
     // const onCLick=()=>{
     //     if(name){
@@ -28,6 +29,13 @@ function Form(){
             <form onSubmit={onSub}>
               <label >Name</label>
               <input type='text' value={name} onChange={(e)=>{setName(e.target.value)}} /><br/>
+              <label>Products</label><br/>
+              <select name='prod'  onChange={(e)=>{setProd(e.target.value)}}>
+                <option disabled>Products</option>
+                <option value='pc'>pc</option>
+                <option value='phone'>phone</option>
+                <option value='t-shirt'>t-shirt</option>
+              </select><br/>
               <input type='checkbox' value='1' onChange={(e)=>(e)=check(e)} />1<br/>
               <input type='checkbox' value='2' onChange={(e)=>(e)=check(e)} />2<br/>
               <input type='checkbox' value='3' onChange={(e)=>(e)=check(e)} />3<br/>
